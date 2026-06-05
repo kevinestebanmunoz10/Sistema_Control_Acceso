@@ -33,7 +33,7 @@ CREATE TABLE `acceso_equi` (
   KEY `Documento` (`Documento`),
   CONSTRAINT `acceso_equi_ibfk_1` FOREIGN KEY (`serial_equi`) REFERENCES `equipo` (`serial_equi`),
   CONSTRAINT `acceso_equi_ibfk_2` FOREIGN KEY (`Documento`) REFERENCES `usuario` (`Documento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +42,7 @@ CREATE TABLE `acceso_equi` (
 
 LOCK TABLES `acceso_equi` WRITE;
 /*!40000 ALTER TABLE `acceso_equi` DISABLE KEYS */;
+INSERT INTO `acceso_equi` VALUES (1,'2025-06-01 08:00:00','2025-06-01 12:00:00','SN-HP-001','1003456793'),(2,'2025-06-01 08:30:00','2025-06-01 13:00:00','SN-DELL-002','1003456792'),(3,'2025-06-01 09:00:00',NULL,'SN-LEN-003','1003456791'),(4,'2025-06-01 10:00:00','2025-06-01 11:30:00','SN-SAM-004','1003456790'),(5,'2025-06-01 11:00:00',NULL,'SN-APP-005','1003456789');
 /*!40000 ALTER TABLE `acceso_equi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +64,7 @@ CREATE TABLE `acceso_pers` (
   KEY `Docu_visi` (`Docu_visi`),
   CONSTRAINT `acceso_pers_ibfk_1` FOREIGN KEY (`Documento`) REFERENCES `usuario` (`Documento`),
   CONSTRAINT `acceso_pers_ibfk_2` FOREIGN KEY (`Docu_visi`) REFERENCES `visitantes` (`Docu_visi`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,6 +73,7 @@ CREATE TABLE `acceso_pers` (
 
 LOCK TABLES `acceso_pers` WRITE;
 /*!40000 ALTER TABLE `acceso_pers` DISABLE KEYS */;
+INSERT INTO `acceso_pers` VALUES (1,'2025-06-01 07:30:00','2025-06-01 17:00:00','1003456789',NULL),(2,'2025-06-01 07:45:00','2025-06-01 17:00:00','1003456790',NULL),(3,'2025-06-01 08:00:00',NULL,'1003456791',NULL),(4,'2025-06-01 09:00:00','2025-06-01 10:30:00',NULL,'80123456'),(5,'2025-06-01 10:00:00',NULL,NULL,'80123457');
 /*!40000 ALTER TABLE `acceso_pers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -99,6 +101,7 @@ CREATE TABLE `acudiente` (
 
 LOCK TABLES `acudiente` WRITE;
 /*!40000 ALTER TABLE `acudiente` DISABLE KEYS */;
+INSERT INTO `acudiente` VALUES ('52345678','Mar?a L?pez','3156789012','3167890123','Cra 5 #10-20','maria@gmail.com'),('52345679','Jorge Ram?rez','3178901234',NULL,'Cll 8 #15-30','jorge@gmail.com'),('52345680','Ana Torres','3189012345','3190123456','Av 3 #20-40','ana@gmail.com'),('52345681','Luis Herrera','3201234567',NULL,'Cra 9 #5-15','luis@gmail.com'),('52345682','Rosa D?az','3212345678','3223456789','Cll 12 #8-25','rosa@gmail.com');
 /*!40000 ALTER TABLE `acudiente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,6 +128,7 @@ CREATE TABLE `ciudad` (
 
 LOCK TABLES `ciudad` WRITE;
 /*!40000 ALTER TABLE `ciudad` DISABLE KEYS */;
+INSERT INTO `ciudad` VALUES (50001,'Medell?n',5),(80001,'Barranquilla',8),(110001,'Bogot?',11),(730001,'Ibagu?',73),(760001,'Cali',76);
 /*!40000 ALTER TABLE `ciudad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,6 +152,7 @@ CREATE TABLE `departamento` (
 
 LOCK TABLES `departamento` WRITE;
 /*!40000 ALTER TABLE `departamento` DISABLE KEYS */;
+INSERT INTO `departamento` VALUES (5,'Antioquia'),(8,'Atl?ntico'),(11,'Cundinamarca'),(73,'Tolima'),(76,'Valle del Cauca');
 /*!40000 ALTER TABLE `departamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,6 +183,7 @@ CREATE TABLE `equipo` (
 
 LOCK TABLES `equipo` WRITE;
 /*!40000 ALTER TABLE `equipo` DISABLE KEYS */;
+INSERT INTO `equipo` VALUES ('SN-APP-005',2,5,'Plateado','app005.jpg'),('SN-DELL-002',1,2,'Negro','dell002.jpg'),('SN-HP-001',1,1,'Gris','hp001.jpg'),('SN-LEN-003',3,3,'Negro','len003.jpg'),('SN-SAM-004',2,4,'Blanco','sam004.jpg');
 /*!40000 ALTER TABLE `equipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,7 +198,7 @@ CREATE TABLE `estado` (
   `id_estado` int(11) NOT NULL AUTO_INCREMENT,
   `estado` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_estado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -201,6 +207,7 @@ CREATE TABLE `estado` (
 
 LOCK TABLES `estado` WRITE;
 /*!40000 ALTER TABLE `estado` DISABLE KEYS */;
+INSERT INTO `estado` VALUES (1,1),(2,1),(3,0),(4,1),(5,0);
 /*!40000 ALTER TABLE `estado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,7 +229,7 @@ CREATE TABLE `estudiante_acudiente` (
   KEY `Documento` (`Documento`),
   CONSTRAINT `estudiante_acudiente_ibfk_1` FOREIGN KEY (`Documento_acud`) REFERENCES `acudiente` (`Documento_acud`),
   CONSTRAINT `estudiante_acudiente_ibfk_2` FOREIGN KEY (`Documento`) REFERENCES `usuario` (`Documento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,6 +238,7 @@ CREATE TABLE `estudiante_acudiente` (
 
 LOCK TABLES `estudiante_acudiente` WRITE;
 /*!40000 ALTER TABLE `estudiante_acudiente` DISABLE KEYS */;
+INSERT INTO `estudiante_acudiente` VALUES (1,'Madre','Si','52345678','1003456789'),(2,'Padre','Si','52345679','1003456790'),(3,'Madre','Si','52345680','1003456791'),(4,'Padre','No','52345681','1003456792'),(5,'Abuela','Si','52345682','1003456793');
 /*!40000 ALTER TABLE `estudiante_acudiente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -245,7 +253,7 @@ CREATE TABLE `jornada` (
   `id_Jornada` int(11) NOT NULL AUTO_INCREMENT,
   `Jornada` varchar(20) NOT NULL,
   PRIMARY KEY (`id_Jornada`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -254,6 +262,7 @@ CREATE TABLE `jornada` (
 
 LOCK TABLES `jornada` WRITE;
 /*!40000 ALTER TABLE `jornada` DISABLE KEYS */;
+INSERT INTO `jornada` VALUES (1,'Ma?ana'),(2,'Tarde'),(3,'Noche'),(4,'Completa'),(5,'Sabatina');
 /*!40000 ALTER TABLE `jornada` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -268,7 +277,7 @@ CREATE TABLE `marca` (
   `id_marca` int(11) NOT NULL AUTO_INCREMENT,
   `marca` varchar(50) NOT NULL,
   PRIMARY KEY (`id_marca`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -277,6 +286,7 @@ CREATE TABLE `marca` (
 
 LOCK TABLES `marca` WRITE;
 /*!40000 ALTER TABLE `marca` DISABLE KEYS */;
+INSERT INTO `marca` VALUES (1,'HP'),(2,'Dell'),(3,'Lenovo'),(4,'Samsung'),(5,'Apple');
 /*!40000 ALTER TABLE `marca` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -298,7 +308,7 @@ CREATE TABLE `matricula` (
   KEY `Documento` (`Documento`),
   CONSTRAINT `matricula_ibfk_1` FOREIGN KEY (`id_Salon`) REFERENCES `salon` (`id_Salon`),
   CONSTRAINT `matricula_ibfk_2` FOREIGN KEY (`Documento`) REFERENCES `usuario` (`Documento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -307,6 +317,7 @@ CREATE TABLE `matricula` (
 
 LOCK TABLES `matricula` WRITE;
 /*!40000 ALTER TABLE `matricula` DISABLE KEYS */;
+INSERT INTO `matricula` VALUES (1,'6?','2025-01-15',1,'1003456789'),(2,'7?','2025-01-15',2,'1003456790'),(3,'8?','2025-01-16',1,'1003456791'),(4,'9?','2025-01-16',3,'1003456792'),(5,'10?','2025-01-17',2,'1003456793');
 /*!40000 ALTER TABLE `matricula` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -325,7 +336,7 @@ CREATE TABLE `permiso` (
   PRIMARY KEY (`id_Permi`),
   KEY `id_estu_acud` (`id_estu_acud`),
   CONSTRAINT `permiso_ibfk_1` FOREIGN KEY (`id_estu_acud`) REFERENCES `estudiante_acudiente` (`id_estu_acud`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -334,6 +345,7 @@ CREATE TABLE `permiso` (
 
 LOCK TABLES `permiso` WRITE;
 /*!40000 ALTER TABLE `permiso` DISABLE KEYS */;
+INSERT INTO `permiso` VALUES (1,'Ver reportes','Permite ver reportes del sistema',5),(2,'Crear usuario','Permite crear nuevos usuarios',4),(3,'Gestionar equipos','Permite registrar y editar equipos',3),(4,'Ver accesos','Permite ver el historial de accesos',2),(5,'Autorizar salida','Permite autorizar salida de estudiantes',1);
 /*!40000 ALTER TABLE `permiso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,7 +371,7 @@ CREATE TABLE `prestamo_equipo` (
   CONSTRAINT `prestamo_equipo_ibfk_1` FOREIGN KEY (`Documento`) REFERENCES `usuario` (`Documento`),
   CONSTRAINT `prestamo_equipo_ibfk_2` FOREIGN KEY (`serial_equi`) REFERENCES `equipo` (`serial_equi`),
   CONSTRAINT `prestamo_equipo_ibfk_3` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -368,6 +380,7 @@ CREATE TABLE `prestamo_equipo` (
 
 LOCK TABLES `prestamo_equipo` WRITE;
 /*!40000 ALTER TABLE `prestamo_equipo` DISABLE KEYS */;
+INSERT INTO `prestamo_equipo` VALUES (1,'2025-06-01 08:00:00','2025-06-01 12:00:00','Clase de informatica','1003456789','SN-HP-001',1),(2,'2025-06-02 08:30:00','2025-06-02 13:00:00','Exposicion de proyecto','1003456790','SN-DELL-002',1),(3,'2025-06-03 09:00:00',NULL,'Tarea en casa','1003456791','SN-LEN-003',2),(4,'2025-06-04 10:00:00','2025-06-04 16:00:00','Practica de laboratorio','1003456792','SN-SAM-004',1),(5,'2025-06-05 11:00:00',NULL,'Proyecto final','1003456793','SN-APP-005',2);
 /*!40000 ALTER TABLE `prestamo_equipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -382,7 +395,7 @@ CREATE TABLE `rol` (
   `id_rol` int(11) NOT NULL AUTO_INCREMENT,
   `rol` varchar(50) NOT NULL,
   PRIMARY KEY (`id_rol`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -391,6 +404,7 @@ CREATE TABLE `rol` (
 
 LOCK TABLES `rol` WRITE;
 /*!40000 ALTER TABLE `rol` DISABLE KEYS */;
+INSERT INTO `rol` VALUES (1,'Administrador'),(2,'Vigilante'),(3,'Coordinador'),(4,'Rector'),(5,'Estudiante');
 /*!40000 ALTER TABLE `rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -410,7 +424,7 @@ CREATE TABLE `rol_permiso` (
   KEY `id_rol` (`id_rol`),
   CONSTRAINT `rol_permiso_ibfk_1` FOREIGN KEY (`id_permi`) REFERENCES `permiso` (`id_Permi`),
   CONSTRAINT `rol_permiso_ibfk_2` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -419,6 +433,7 @@ CREATE TABLE `rol_permiso` (
 
 LOCK TABLES `rol_permiso` WRITE;
 /*!40000 ALTER TABLE `rol_permiso` DISABLE KEYS */;
+INSERT INTO `rol_permiso` VALUES (1,1,1),(2,2,1),(3,3,1),(4,4,2),(5,5,3);
 /*!40000 ALTER TABLE `rol_permiso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -439,7 +454,7 @@ CREATE TABLE `salon` (
   KEY `Nit` (`Nit`),
   CONSTRAINT `salon_ibfk_1` FOREIGN KEY (`id_Jornada`) REFERENCES `jornada` (`id_Jornada`),
   CONSTRAINT `salon_ibfk_2` FOREIGN KEY (`Nit`) REFERENCES `sede` (`Nit`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -448,6 +463,7 @@ CREATE TABLE `salon` (
 
 LOCK TABLES `salon` WRITE;
 /*!40000 ALTER TABLE `salon` DISABLE KEYS */;
+INSERT INTO `salon` VALUES (1,'Salon 101',1,900123456),(2,'Salon 102',2,900123456),(3,'Lab Sistemas',1,900123456),(4,'Salon 201',3,900234567),(5,'Auditorio',4,900234567);
 /*!40000 ALTER TABLE `salon` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -474,6 +490,7 @@ CREATE TABLE `sede` (
 
 LOCK TABLES `sede` WRITE;
 /*!40000 ALTER TABLE `sede` DISABLE KEYS */;
+INSERT INTO `sede` VALUES (900123456,'Sede Principal Ibagu?',730001),(900234567,'Sede Norte Bogot?',110001),(900345678,'Sede Laureles Medell?n',50001),(900456789,'Sede Sur Cali',760001),(900567890,'Sede Centro Barranquilla',80001);
 /*!40000 ALTER TABLE `sede` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -488,7 +505,7 @@ CREATE TABLE `tipo_equipo` (
   `id_t_equip` int(11) NOT NULL AUTO_INCREMENT,
   `tipo` varchar(50) NOT NULL,
   PRIMARY KEY (`id_t_equip`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -497,6 +514,7 @@ CREATE TABLE `tipo_equipo` (
 
 LOCK TABLES `tipo_equipo` WRITE;
 /*!40000 ALTER TABLE `tipo_equipo` DISABLE KEYS */;
+INSERT INTO `tipo_equipo` VALUES (1,'Port?til'),(2,'Tablet'),(3,'Proyector'),(4,'Desktop'),(5,'Impresora');
 /*!40000 ALTER TABLE `tipo_equipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -533,6 +551,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES ('1003456789','Kevin Mu?oz','kevin@gmail.com','3101234567','QR-001','1234',5,1,730001),('1003456790','Angel Montealegre','angel@gmail.com','3112345678','QR-002','1234',3,1,730001),('1003456791','Zahegh Murillo','zahegh@gmail.com','3123456789','QR-003','1234',2,1,730001),('1003456792','Laura G?mez','laura@gmail.com','3134567890','QR-004','1234',4,1,110001),('1003456793','Carlos P?rez','carlos@gmail.com','3145678901','QR-005','1234',1,1,730001);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -564,6 +583,7 @@ CREATE TABLE `visitantes` (
 
 LOCK TABLES `visitantes` WRITE;
 /*!40000 ALTER TABLE `visitantes` DISABLE KEYS */;
+INSERT INTO `visitantes` VALUES ('80123456','Pedro Vargas','3234567890','pedro@gmail.com',1,NULL),('80123457','Sof?a Castro','3245678901','sofia@gmail.com',1,NULL),('80123458','Andr?s Mora','3256789012','andres@gmail.com',1,NULL),('80123459','Paola Jim?nez','3267890123','paola@gmail.com',2,NULL),('80123460','Diego Salcedo','3278901234','diego@gmail.com',2,NULL);
 /*!40000 ALTER TABLE `visitantes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -576,4 +596,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-04 11:17:49
+-- Dump completed on 2026-06-05  9:37:19
