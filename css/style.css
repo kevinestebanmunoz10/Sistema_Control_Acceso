@@ -133,7 +133,7 @@ body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(r
 .about-value strong{font-size:14px;font-weight:600;color:var(--text);font-family:var(--font-d)}
 .about-value span{font-size:13px;color:var(--text-muted);line-height:1.5}
 
-/* Team card */
+/* Team-card */
 .team-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:32px;position:sticky;top:90px}
 .team-header{margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
 .team-members{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}

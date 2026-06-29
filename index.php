@@ -17,7 +17,7 @@ $page_description = "Software de control de acceso de personal y equipos para in
         rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
-
+<!-- BODY -->
 <body>
 
     <!-- NAVBAR -->
