@@ -15,9 +15,9 @@ $page_description = "Software de control de acceso de personal y equipos para in
     <link
         href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/index.css" />
 </head>
-<!-- BODY -->
+
 <body>
 
     <!-- NAVBAR -->
@@ -71,7 +71,7 @@ $page_description = "Software de control de acceso de personal y equipos para in
             <div class="hero-content">
                 <h1 class="hero-title">
                     Control total <br />
-                    <span class="highlight"> de acceso e inventario en</span><br />
+                    <span class="highlight">de acceso e inventario en</span><br />
                     tu institución
                 </h1>
                 <p class="hero-desc">
@@ -294,8 +294,175 @@ $page_description = "Software de control de acceso de personal y equipos para in
     </section>
 
 
+    <!-- CONTACTO -->
+    <section class="section-contact" id="contacto">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">Contáctenos</div>
+                <h2 class="section-title">¿Tienes alguna <span class="highlight">pregunta?</span></h2>
+                <p class="section-desc">Escríbenos y te respondemos a la mayor brevedad posible.</p>
+            </div>
+
+            <div class="contact-grid">
+
+                <!-- Info -->
+                <div class="contact-info reveal">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20"
+                                height="20">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <path d="M22 6l-10 7L2 6" />
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Correo electrónico</strong>
+                            <span>contacto@scape.edu.co</span>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20"
+                                height="20">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Teléfono</strong>
+                            <span>+57 320 433 5841</span>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20"
+                                height="20">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Ubicación</strong>
+                            <span>Ibagué, Tolima — Colombia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <div class="contact-form-wrap reveal reveal-delay-2">
+                    <?php
+        $contact_success = false;
+        $contact_error   = '';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_submit'])) {
+            $cn = trim($_POST['contact_nombre']  ?? '');
+            $ce = trim($_POST['contact_email']   ?? '');
+            $cm = trim($_POST['contact_mensaje'] ?? '');
+            if ($cn && $ce && $cm) {
+                // TODO: aquí va el envío de correo con mail() o phpmailer
+                $contact_success = true;
+            } else {
+                $contact_error = 'Por favor completa todos los campos.';
+            }
+        }
+        ?>
+
+                    <?php if ($contact_success): ?>
+                    <div class="contact-success">
+                        <div class="contact-success-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"
+                                height="28">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                                <path d="M22 4L12 14.01l-3-3" />
+                            </svg>
+                        </div>
+                        <h3>¡Mensaje enviado!</h3>
+                        <p>Gracias por contactarnos. Te responderemos pronto.</p>
+                    </div>
+                    <?php else: ?>
+
+                    <?php if ($contact_error): ?>
+                    <div class="alert alert-error show" style="margin-bottom:20px;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+                            height="16">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 8v4M12 16h.01" />
+                        </svg>
+                        <?= htmlspecialchars($contact_error) ?>
+                    </div>
+                    <?php endif; ?>
+
+                    <form method="POST" action="#contacto">
+                        <div class="contact-row">
+                            <div class="form-group">
+                                <label class="form-label">Nombre completo</label>
+                                <div class="input-wrap">
+                                    <span class="input-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                            width="17" height="17">
+                                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                                            <circle cx="12" cy="7" r="4" />
+                                        </svg>
+                                    </span>
+                                    <input type="text" name="contact_nombre" class="form-input" placeholder="Tu nombre"
+                                        value="<?= htmlspecialchars($_POST['contact_nombre'] ?? '') ?>" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Correo electrónico</label>
+                                <div class="input-wrap">
+                                    <span class="input-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                            width="17" height="17">
+                                            <path
+                                                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                            <path d="M22 6l-10 7L2 6" />
+                                        </svg>
+                                    </span>
+                                    <input type="email" name="contact_email" class="form-input"
+                                        placeholder="tucorreo@ejemplo.com"
+                                        value="<?= htmlspecialchars($_POST['contact_email'] ?? '') ?>" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Institución</label>
+                            <div class="input-wrap">
+                                <span class="input-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                        width="17" height="17">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                                        <path d="M9 22V12h6v10" />
+                                    </svg>
+                                </span>
+                                <input type="text" name="contact_institucion" class="form-input"
+                                    placeholder="Nombre de tu institución"
+                                    value="<?= htmlspecialchars($_POST['contact_institucion'] ?? '') ?>" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Mensaje</label>
+                            <textarea name="contact_mensaje" class="form-input form-textarea"
+                                placeholder="Cuéntanos en qué podemos ayudarte..."><?= htmlspecialchars($_POST['contact_mensaje'] ?? '') ?></textarea>
+                        </div>
+                        <button type="submit" name="contact_submit" class="btn btn-primary btn-lg btn-block">
+                            Enviar mensaje
+                            <svg width="17" height="17" fill="none" viewBox="0 0 24 24">
+                                <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </form>
+
+                    <?php endif; ?>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
     <!-- FOOTER -->
-    <footer class="footer" id="contacto">
+    <footer class="footer" id="footer">
         <div class="container">
             <div class="footer-grid">
 
@@ -323,7 +490,7 @@ $page_description = "Software de control de acceso de personal y equipos para in
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                                 <path d="M22 6l-10 7L2 6" />
                             </svg>
-                            contacto@scape.edu.co
+                            angel.montesanta@gmail.com
                         </div>
                         <div class="footer-contact-item">
                             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -393,7 +560,7 @@ $page_description = "Software de control de acceso de personal y equipos para in
                 if (entry.isIntersecting) {
                     navLinks.forEach(a => a.classList.remove('active'));
                     const active = document.querySelector(
-                        `.navbar-links a[href="#${entry.target.id}"]`);
+                    `.navbar-links a[href="#${entry.target.id}"]`);
                     if (active) active.classList.add('active');
                 }
             });
