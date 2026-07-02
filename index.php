@@ -1,631 +1,256 @@
-<?php
-$page_title       = "SCAPE — Control de Acceso Inteligente";
-$page_description = "Software de control de acceso de personal y equipos para instituciones educativas.";
-?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="<?= htmlspecialchars($page_description) ?>" />
-    <title><?= htmlspecialchars($page_title) ?></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="css/index.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCAPE - Control de Acceso Inteligente</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar" id="navbar">
-        <div class="navbar-inner">
-            <a href="index.php" class="navbar-logo">
-                <div class="logo-img-wrap">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="position:relative;z-index:1;">
-                        <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z" fill="none"
-                            stroke="#00C6FF" stroke-width="1.8" stroke-linejoin="round" />
-                        <circle cx="12" cy="12" r="3" fill="#1E6FFF" />
-                        <path d="M12 9v3l2 2" stroke="#00C6FF" stroke-width="1.5" stroke-linecap="round" />
-                    </svg>
-                </div>
-                <div class="logo-text">
-                    <strong>SCAPE</strong>
-                    <span>Control de Acceso</span>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold fs-3" href="#">
+               <!-- REEMPLAZA LA LÍNEA DEL LOGO POR ESTA: -->
+<img src="imagenes/favicon.png" alt="Logo SCAPE" width="55" height="55" class="rounded-circle d-inline-block align-text-top my-1" style="object-fit: cover;">SCAPE
             </a>
-
-            <ul class="navbar-links">
-                <li><a href="#inicio" class="active">Inicio</a></li>
-                <li><a href="#caracteristicas">Características</a></li>
-                <li><a href="#nosotros">Acerca de nosotros</a></li>
-                <li><a href="#contacto">Contáctenos</a></li>
-            </ul>
-
-            <div class="navbar-actions">
-                <a href="login.php" class="btn btn-primary">
-                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-                    Iniciar sesión
-                </a>
-            </div>
-
-            <button class="hamburger" id="hamburger" aria-label="Menú">
-                <span></span><span></span><span></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link px-3" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#caracteristicas">Características</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#nosotros">Acerca de nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#contacto">Contáctanos</a></li>
+                </ul>
+                <a href="admin/login.php" class="btn btn-outline-light rounded-pill px-4">Iniciar sesión</a>
+            </div>
         </div>
     </nav>
 
-
-    <!-- HERO -->
-    <section class="hero" id="inicio">
-        <div class="hero-orb hero-orb-1"></div>
-        <div class="hero-orb hero-orb-2"></div>
-
+    <header id="inicio" class="hero-section text-center text-white">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Control total <br />
-                    <span class="highlight">de acceso e inventario en</span><br />
-                    tu institución
-                </h1>
-                <p class="hero-desc">
-                    SCAPE centraliza el registro de personal, equipos y visitantes en una sola plataforma.
-                    Pensado para colegios que necesitan seguridad real sin complicaciones.
+            <h1 class="titulo-impacto">
+                Control total <span>de acceso e inventario</span><br>en tu institución
+            </h1>
+            <p class="lead w-75 mx-auto text-light opacity-75 mb-5">
+                SCAPE centraliza el registro de personal, equipos y visitantes en una sola plataforma. 
+                Pensado para instituciones que necesitan seguridad real sin complicaciones.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#caracteristicas" class="btn btn-primary-custom">Conocer características</a>
+                <a href="#nosotros" class="btn btn-outline-light btn-lg rounded-pill px-4">Acerca de nosotros</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="container mb-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="p-4 card-custom text-center">
+                    <p class="text-secondary-custom mb-1 small">Accesos hoy</p>
+                    <h2 class="display-4 fw-bold text-white">847</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 card-custom text-center">
+                    <p class="text-secondary-custom mb-1 small">Puertas activas</p>
+                    <h2 class="display-4 fw-bold text-info">24/24</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 card-custom text-center">
+                    <p class="text-secondary-custom mb-1 small">Alarmas</p>
+                    <h2 class="display-4 fw-bold text-danger">3</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="caracteristicas" class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold h1 text-white">Funcionalidades Principales</h2>
+            <div class="linea-decorativa"></div>
+        </div>
+        
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="p-4 card-func">
+                    <div class="icon-box"><i class="bi bi-people-fill"></i></div>
+                    <h5 class="text-white">Registro de personal</h5>
+                    <p class="text-secondary-custom small m-0">Empleados, docentes y visitantes en un solo directorio. Control mediante QR del carnet.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-4 card-func">
+                    <div class="icon-box"><i class="bi bi-laptop"></i></div>
+                    <h5 class="text-white">Inventario de equipos</h5>
+                    <p class="text-secondary-custom small m-0">Trazabilidad completa de portátiles y material de informática. Registro de entradas y salidas.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-4 card-func">
+                    <div class="icon-box"><i class="bi bi-shield-check"></i></div>
+                    <h5 class="text-white">Control de visitantes</h5>
+                    <p class="text-secondary-custom small m-0">Pre-registro de externos y autorización de entrada. Notificación automática al responsable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-6 d-flex flex-column justify-content-center">
+                <span class="text-cyan text-uppercase fw-bold tracking-wider small mb-3">Acerca de nosotros</span>
+                <h2 class="titulo-nosotros-bold mb-4">
+                    Construido por personas <br>
+                    <span class="text-gradient-cyan">que entienden la educación</span>
+                </h2>
+                
+                <p class="text-secondary-custom mb-4">
+                    SCAPE nació de la necesidad real de una institución educativa en Ibagué que no encontraba una herramienta de control de acceso adaptada a su contexto. Somos un equipo joven, comprometido con la tecnología aplicada a la seguridad escolar.
                 </p>
-                <div class="hero-actions">
-                    <a href="#caracteristicas" class="btn btn-primary btn-lg">
-                        Conocer características
-                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a>
-                    <a href="#nosotros" class="btn btn-ghost btn-lg">Acerca de nosotros</a>
-                </div>
+                <p class="text-secondary-custom">
+                    Nuestro objetivo es simple: que cada rector, coordinador y vigilante tenga visibilidad total de quién entra, quién sale y qué equipos se mueven, sin necesidad de conocimientos técnicos avanzados.
+                </p>
             </div>
-        </div>
-    </section>
-
-
-    <!-- STATS -->
-    <section class="section-stats">
-        <div class="container">
-            <div class="stats-row">
-                <div class="stat-block reveal">
-                    <div class="stat-block-value" data-count="500">0</div>
-                    <div class="stat-block-label">Instituciones registradas</div>
-                </div>
-                <div class="stat-block reveal reveal-delay-1">
-                    <div class="stat-block-value">99.9%</div>
-                    <div class="stat-block-label">Tiempo de actividad</div>
-                </div>
-                <div class="stat-block reveal reveal-delay-2">
-                    <div class="stat-block-value" data-count="2">0</div>
-                    <div class="stat-block-label">Millones de accesos/día</div>
-                </div>
-                <div class="stat-block reveal reveal-delay-3">
-                    <div class="stat-block-value">24/7</div>
-                    <div class="stat-block-label">Soporte técnico</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- FEATURES -->
-    <section class="section-features" id="caracteristicas">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-tag">Características</div>
-                <h2 class="section-title">Todo lo que tu institución<br /><span class="highlight">necesita en un solo
-                        lugar</span></h2>
-                <p class="section-desc">Módulos diseñados para el flujo real de un colegio, sin sobrecomplicar.</p>
-            </div>
-            <div class="features-grid">
-
-                <div class="feature-card featured reveal">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                            <circle cx="9" cy="7" r="4" />
-                            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Registro de personal</h3>
-                    <p class="feature-desc">Empleados, docentes, estudiantes y visitantes en un solo directorio. Control
-                        de ingreso manual o mediante QR desde el carnet.</p>
-                </div>
-
-                <div class="feature-card reveal reveal-delay-1">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <rect x="2" y="3" width="20" height="14" rx="2" />
-                            <path d="M8 21h8M12 17v4" />
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Inventario de equipos</h3>
-                    <p class="feature-desc">Portátiles y material de informática con trazabilidad completa. Registro de
-                        entradas, salidas y préstamos con asignación automática.</p>
-                </div>
-
-                <div class="feature-card reveal reveal-delay-2">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Control de visitantes</h3>
-                    <p class="feature-desc">Pre-registro de externos, autorización de entrada y tiempo máximo de
-                        permanencia. Notificación automática al responsable.</p>
-                </div>
-
-                <div class="feature-card reveal">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Gestión de roles</h3>
-                    <p class="feature-desc">Administrador, vigilante, coordinador y rector, cada uno con contraseña y
-                        privilegios diferenciados sobre el sistema.</p>
-                </div>
-
-                <div class="feature-card reveal reveal-delay-1">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-                            <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Reportes y exportación</h3>
-                    <p class="feature-desc">Historial de accesos por persona o equipo. Exportación en PDF y Excel para
-                        uso administrativo con un clic.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ACERCA DE NOSOTROS -->
-    <section class="section-about" id="nosotros">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-left reveal">
-                    <div class="section-tag">Acerca de nosotros</div>
-                    <h2 class="section-title">Construido por personas<br /><span class="highlight">que entienden la
-                            educación</span></h2>
-                    <p class="about-desc">SCAPE nació de la necesidad real de una institución educativa en Ibagué que no
-                        encontraba una herramienta de control de acceso adaptada a su contexto. Somos un equipo joven,
-                        comprometido con la tecnología aplicada a la seguridad escolar.</p>
-                    <p class="about-desc">Nuestro objetivo es simple: que cada rector, coordinador y vigilante tenga
-                        visibilidad total de quién entra, quién sale y qué equipos se mueven, sin necesidad de
-                        conocimientos técnicos avanzados.</p>
-                    <div class="about-values">
-                        <div class="about-value">
-                            <div class="about-value-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20"
-                                    height="20">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                </svg>
-                            </div>
+            
+            <div class="col-lg-6">
+                <div class="card-equipo-container p-4">
+                    <span class="text-cyan-light text-uppercase fw-bold small mb-3 d-block">Nuestro Equipo</span>
+                    <p class="text-secondary-custom small mb-4">
+                        Estudiantes de desarrollo de software con una visión clara: tecnología útil, simple y segura para la educación colombiana.
+                    </p>
+                    
+                    <div class="d-flex flex-column gap-3 mb-4">
+                        <div class="role-card p-3 d-flex align-items-center gap-3">
+                            <div class="avatar-box">DE1</div>
                             <div>
-                                <strong>Seguridad primero</strong>
-                                <span>Cada decisión de diseño parte de proteger a la comunidad educativa.</span>
+                                <h6 class="text-white fw-bold mb-0">Desarrollador Backend</h6>
+                                <span class="text-secondary-custom text-xs">PHP · MySQL</span>
                             </div>
                         </div>
-                        <div class="about-value">
-                            <div class="about-value-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20"
-                                    height="20">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="M12 6v6l4 2" />
-                                </svg>
-                            </div>
+                        
+                        <div class="role-card p-3 d-flex align-items-center gap-3">
+                            <div class="avatar-box">DE2</div>
                             <div>
-                                <strong>Simple y rápido</strong>
-                                <span>Interfaz pensada para que cualquier persona pueda operarla desde el primer
-                                    día.</span>
+                                <h6 class="text-white fw-bold mb-0">Desarrollador Frontend</h6>
+                                <span class="text-secondary-custom text-xs">HTML · CSS · JS</span>
                             </div>
                         </div>
-                        <div class="about-value">
-                            <div class="about-value-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20"
-                                    height="20">
-                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                                    <circle cx="9" cy="7" r="4" />
-                                    <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-                                </svg>
-                            </div>
+                        
+                        <div class="role-card p-3 d-flex align-items-center gap-3">
+                            <div class="avatar-box">DE3</div>
                             <div>
-                                <strong>Hecho en Colombia</strong>
-                                <span>Desarrollado en Ibagué, entendiendo el contexto de las instituciones
-                                    locales.</span>
+                                <h6 class="text-white fw-bold mb-0">Diseño & Base de datos</h6>
+                                <span class="text-secondary-custom text-xs">UX · SQL · ERD</span>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="about-right reveal reveal-delay-2">
-                    <div class="team-card">
-                        <div class="team-header">
-                            <div class="section-tag" style="margin-bottom:12px;">Nuestro equipo</div>
-                            <p style="font-size:14px;color:var(--text-muted);line-height:1.6;">Estudiantes de desarrollo
-                                de software con una visión clara: tecnología útil, simple y segura para la educación
-                                colombiana.</p>
-                        </div>
-                        <div class="team-members">
-                            <?php
-            $team = [
-              ["initials"=>"DE1","role"=>"Desarrollador Backend","skill"=>"PHP · MySQL"],
-              ["initials"=>"DE2","role"=>"Desarrollador Frontend","skill"=>"HTML · CSS · JS"],
-              ["initials"=>"DE3","role"=>"Diseño & Base de datos","skill"=>"UX · SQL · ERD"],
-            ];
-            foreach($team as $m): ?>
-                            <div class="team-member">
-                                <div class="team-avatar"><?= $m['initials'] ?></div>
-                                <div class="team-info">
-                                    <strong><?= $m['role'] ?></strong>
-                                    <span><?= $m['skill'] ?></span>
-                                </div>
-                            </div>
-                            <?php endforeach; ?>
-                        </div>
-                        <div class="team-footer">
-                            <div class="tech-badges">
-                                <span class="tech-badge">PHP</span>
-                                <span class="tech-badge">MySQL</span>
-                                <span class="tech-badge">HTML</span>
-                                <span class="tech-badge">CSS</span>
-                                <span class="tech-badge">XAMPP</span>
-                                <span class="tech-badge">Git</span>
-                            </div>
-                        </div>
+                    
+                    <div class="d-flex flex-wrap gap-2 pt-3 border-top border-dark-custom">
+                        <span class="badge-tech">PHP</span>
+                        <span class="badge-tech">MySQL</span>
+                        <span class="badge-tech">HTML</span>
+                        <span class="badge-tech">CSS</span>
+                        <span class="badge-tech">XAMPP</span>
+                        <span class="badge-tech">Git</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- CONTACTO -->
-    <section class="section-contact" id="contacto">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-tag">Contáctenos</div>
-                <h2 class="section-title">¿Tienes alguna <span class="highlight">pregunta?</span></h2>
-                <p class="section-desc">Escríbenos y te respondemos a la mayor brevedad posible.</p>
-            </div>
-
-            <div class="contact-grid">
-
-                <!-- Info -->
-                <div class="contact-info reveal">
-                    <div class="contact-info-item">
-                        <div class="contact-info-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20"
-                                height="20">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                <path d="M22 6l-10 7L2 6" />
-                            </svg>
-                        </div>
-                        <div>
-                            <strong>Correo electrónico</strong>
-                            <span>contacto@scape.edu.co</span>
-                        </div>
-                    </div>
-                    <div class="contact-info-item">
-                        <div class="contact-info-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20"
-                                height="20">
-                                <path
-                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <strong>Teléfono</strong>
-                            <span>+57 320 433 5841</span>
-                        </div>
-                    </div>
-                    <div class="contact-info-item">
-                        <div class="contact-info-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20"
-                                height="20">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                                <circle cx="12" cy="10" r="3" />
-                            </svg>
-                        </div>
-                        <div>
-                            <strong>Ubicación</strong>
-                            <span>Ibagué, Tolima — Colombia</span>
-                        </div>
-                    </div>
+    <section id="contacto" class="container py-5">
+        <div class="card card-custom p-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="fw-bold h1 text-white mb-4">Contáctanos</h2>
+                    <p class="text-secondary-custom mb-4">¿Tienes dudas o necesitas una demostración personalizada? Nuestro equipo de soporte técnico 24/7 está listo para ayudarte.</p>
+                    <ul class="list-unstyled mt-4 contact-list">
+                        <li class="mb-3 text-secondary-custom"><i class="bi bi-envelope-fill text-accent-custom me-2"></i> soporte@scape.com</li>
+                        <li class="mb-3 text-secondary-custom"><i class="bi bi-telephone-fill text-accent-custom me-2"></i> +57 (601) 123 4567</li>
+                        <li class="text-secondary-custom"><i class="bi bi-geo-alt-fill text-accent-custom me-2"></i> Ibagué, Tolima</li>
+                    </ul>
                 </div>
-
-                <!-- Formulario -->
-                <div class="contact-form-wrap reveal reveal-delay-2">
-                    <?php
-        $contact_success = false;
-        $contact_error   = '';
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_submit'])) {
-            $cn = trim($_POST['contact_nombre']  ?? '');
-            $ce = trim($_POST['contact_email']   ?? '');
-            $cm = trim($_POST['contact_mensaje'] ?? '');
-            if ($cn && $ce && $cm) {
-                // TODO: aquí va el envío de correo con mail() o phpmailer
-                $contact_success = true;
-            } else {
-                $contact_error = 'Por favor completa todos los campos.';
-            }
-        }
-        ?>
-
-                    <?php if ($contact_success): ?>
-                    <div class="contact-success">
-                        <div class="contact-success-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"
-                                height="28">
-                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-                                <path d="M22 4L12 14.01l-3-3" />
-                            </svg>
+                <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Tu nombre">
                         </div>
-                        <h3>¡Mensaje enviado!</h3>
-                        <p>Gracias por contactarnos. Te responderemos pronto.</p>
-                    </div>
-                    <?php else: ?>
-
-                    <?php if ($contact_error): ?>
-                    <div class="alert alert-error show" style="margin-bottom:20px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
-                            height="16">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M12 8v4M12 16h.01" />
-                        </svg>
-                        <?= htmlspecialchars($contact_error) ?>
-                    </div>
-                    <?php endif; ?>
-
-                    <form method="POST" action="#contacto">
-                        <div class="contact-row">
-                            <div class="form-group">
-                                <label class="form-label">Nombre completo</label>
-                                <div class="input-wrap">
-                                    <span class="input-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                            width="17" height="17">
-                                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-                                            <circle cx="12" cy="7" r="4" />
-                                        </svg>
-                                    </span>
-                                    <input type="text" name="contact_nombre" class="form-input" placeholder="Tu nombre"
-                                        value="<?= htmlspecialchars($_POST['contact_nombre'] ?? '') ?>" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Correo electrónico</label>
-                                <div class="input-wrap">
-                                    <span class="input-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                            width="17" height="17">
-                                            <path
-                                                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                            <path d="M22 6l-10 7L2 6" />
-                                        </svg>
-                                    </span>
-                                    <input type="email" name="contact_email" class="form-input"
-                                        placeholder="tucorreo@ejemplo.com"
-                                        value="<?= htmlspecialchars($_POST['contact_email'] ?? '') ?>" />
-                                </div>
-                            </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Tu correo electrónico">
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Institución</label>
-                            <div class="input-wrap">
-                                <span class="input-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                        width="17" height="17">
-                                        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-                                        <path d="M9 22V12h6v10" />
-                                    </svg>
-                                </span>
-                                <input type="text" name="contact_institucion" class="form-input"
-                                    placeholder="Nombre de tu institución"
-                                    value="<?= htmlspecialchars($_POST['contact_institucion'] ?? '') ?>" />
-                            </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Mensaje</label>
-                            <textarea name="contact_mensaje" class="form-input form-textarea"
-                                placeholder="Cuéntanos en qué podemos ayudarte..."><?= htmlspecialchars($_POST['contact_mensaje'] ?? '') ?></textarea>
-                        </div>
-                        <button type="submit" name="contact_submit" class="btn btn-primary btn-lg btn-block">
-                            Enviar mensaje
-                            <svg width="17" height="17" fill="none" viewBox="0 0 24 24">
-                                <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </button>
+                        <button type="button" class="btn btn-primary-custom w-100">Enviar mensaje</button>
                     </form>
-
-                    <?php endif; ?>
                 </div>
-
             </div>
         </div>
     </section>
 
-
-    <!-- FOOTER -->
-    <footer class="footer" id="footer">
+    <footer class="footer-scape-custom pt-5 pb-4 mt-5">
         <div class="container">
-            <div class="footer-grid">
-
-                <div class="footer-brand">
-                    <a href="index.php" class="navbar-logo" style="display:inline-flex;">
-                        <div class="logo-img-wrap" style="width:36px;height:36px;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                style="position:relative;z-index:1;">
-                                <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"
-                                    fill="none" stroke="#00C6FF" stroke-width="1.8" />
-                                <circle cx="12" cy="12" r="3" fill="#1E6FFF" />
-                            </svg>
-                        </div>
-                        <div class="logo-text">
-                            <strong>SCAPE</strong>
-                            <span>Control de Acceso</span>
-                        </div>
-                    </a>
-                    <p>Software de control de acceso inteligente para instituciones educativas que priorizan la
-                        seguridad.</p>
-                    <div class="footer-contact-info">
-                        <div class="footer-contact-item">
-                            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                <path d="M22 6l-10 7L2 6" />
-                            </svg>
-                            angel.montesanta@gmail.com
-                        </div>
-                        <div class="footer-contact-item">
-                            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                                <circle cx="12" cy="10" r="3" />
-                            </svg>
-                            Ibagué, Tolima — Colombia
+            <div class="row g-4 mb-5">
+                <div class="col-lg-5">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <img src="imagenes/favicon.png" alt="Logo SCAPE" width="48" height="48" class="rounded-circle" style="object-fit: cover; border: 1px solid rgba(255, 255, 255, 0.1);">
+                        <div>
+                            <span class="footer-brand-title">SCAPE</span>
+                            <span class="footer-brand-subtitle d-block">CONTROL DE ACCESO</span>
                         </div>
                     </div>
+                    <p class="text-secondary-custom small pe-lg-4 mb-4">
+                        Software de control de acceso inteligente para instituciones educativas que priorizan la seguridad.
+                    </p>
+                    <div class="d-flex flex-column gap-2">
+                        <span class="small text-secondary-custom"><i class="bi bi-envelope text-cyan me-2"></i> angel.montesanta@gmail.com</span>
+                        <span class="small text-secondary-custom"><i class="bi bi-geo-alt text-cyan me-2"></i> Ibagué, Tolima — Colombia</span>
+                    </div>
                 </div>
-
-                <div class="footer-col">
-                    <h5>Navegación</h5>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#caracteristicas">Características</a></li>
-                        <li><a href="#nosotros">Acerca de nosotros</a></li>
-                        <li><a href="#contacto">Contáctenos</a></li>
+                
+                <div class="col-6 col-lg-3 offset-lg-1">
+                    <h6 class="footer-section-title text-white fw-bold mb-3">NAVEGACIÓN</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#inicio" class="footer-link">Inicio</a></li>
+                        <li><a href="#caracteristicas" class="footer-link">Características</a></li>
+                        <li><a href="#nosotros" class="footer-link">Acerca de nosotros</a></li>
+                        <li><a href="#contacto" class="footer-link">Contáctenos</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-col">
-                    <h5>Módulos</h5>
-                    <ul>
-                        <li><a href="#caracteristicas">Control de personas</a></li>
-                        <li><a href="#caracteristicas">Gestión de equipos</a></li>
-                        <li><a href="#caracteristicas">Visitantes</a></li>
-                        <li><a href="#caracteristicas">Reportes</a></li>
+                
+                <div class="col-6 col-lg-3">
+                    <h6 class="footer-section-title text-white fw-bold mb-3">MÓDULOS</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#" class="footer-link">Control de personas</a></li>
+                        <li><a href="#" class="footer-link">Gestión de equipos</a></li>
+                        <li><a href="#" class="footer-link">Visitantes</a></li>
+                        <li><a href="#" class="footer-link">Reportes</a></li>
                     </ul>
                 </div>
-
             </div>
-
-            <div class="footer-bottom">
-                <p>©<?= date('Y') ?> SCAPE Software. Todos los derechos reservados.</p>
-                <div class="footer-legal">
-                    <a href="#">Política de privacidad</a>
-                    <a href="#">Términos de uso</a>
+            
+            <div class="row pt-4 border-top border-dark-custom align-items-center text-center text-md-start">
+                <div class="col-md-6">
+                    <p class="text-secondary-custom small mb-md-0">&copy;2026 SCAPE Software. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="footer-link small me-3">Política de privacidad</a>
+                    <a href="#" class="footer-link small">Términos de uso</a>
                 </div>
             </div>
         </div>
     </footer>
 
-
-    <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 20);
-    });
-
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.navbar-links a');
-    new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.forEach(a => a.classList.remove('active'));
-                const active = document.querySelector(`.navbar-links a[href="#${entry.target.id}"]`);
-                if (active) active.classList.add('active');
-            }
-        });
-    }, {
-        threshold: 0.4
-    }).observe && sections.forEach(s =>
-        new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    navLinks.forEach(a => a.classList.remove('active'));
-                    const active = document.querySelector(
-                    `.navbar-links a[href="#${entry.target.id}"]`);
-                    if (active) active.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.4
-        }).observe(s)
-    );
-
-    const revealObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                revealObs.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.15
-    });
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-    const countObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target,
-                    end = parseInt(el.dataset.count, 10);
-                const isM = el.closest('.stat-block')?.querySelector('.stat-block-label')?.textContent
-                    .includes('Millones');
-                let cur = 0;
-                const t = setInterval(() => {
-                    cur += Math.ceil(end / 60);
-                    if (cur >= end) {
-                        cur = end;
-                        clearInterval(t);
-                    }
-                    el.textContent = isM ? `+${cur}M` : `+${cur}`;
-                }, 25);
-                countObs.unobserve(el);
-            }
-        });
-    }, {
-        threshold: 0.5
-    });
-    document.querySelectorAll('[data-count]').forEach(c => countObs.observe(c));
-
-    const hamburger = document.getElementById('hamburger');
-    const navbarLinks = document.querySelector('.navbar-links');
-    hamburger.addEventListener('click', () => {
-        const open = navbarLinks.style.display === 'flex';
-        navbarLinks.style.cssText = open ? '' :
-            'display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:rgba(8,12,20,0.98);backdrop-filter:blur(20px);padding:20px;border-bottom:1px solid #1A2540;gap:4px;';
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', e => {
-            const t = document.querySelector(a.getAttribute('href'));
-            if (t) {
-                e.preventDefault();
-                t.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
